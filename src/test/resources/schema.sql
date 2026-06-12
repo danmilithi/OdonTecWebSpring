@@ -58,4 +58,4 @@ CREATE TABLE usuario (
     tipo_usuario VARCHAR(20) NOT NULL
 );
 
-INSERT INTO usuario (login, senha, tipo_usuario) VALUES ('Mariana', '123', 'ATENDENTE');
+INSERT INTO usuario (login, senha, tipo_usuario) VALUES ('Daniel', '123', 'GERENTE');

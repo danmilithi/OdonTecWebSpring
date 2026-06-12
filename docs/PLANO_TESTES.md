@@ -17,7 +17,7 @@
 | Caso | Procedimento | Resultado esperado |
 |---|---|---|
 | MT-01 | Abrir `/dashboard` sem login | Redirecionar para `/login` |
-| MT-02 | Entrar com `Mariana` e `123` | Exibir dashboard e nome do usuário |
+| MT-02 | Entrar com `Daniel` e `123` | Exibir dashboard e nome do usuário |
 | MT-03 | Entrar com senha inválida | Exibir mensagem de credenciais inválidas |
 | MT-04 | Cadastrar paciente com nome vazio | Exibir validação e não salvar |
 | MT-05 | Cadastrar, editar e excluir paciente | Tabela e banco refletirem as três operações |

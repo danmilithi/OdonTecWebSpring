@@ -17,12 +17,12 @@ class UsuarioRepositoryTest {
 
     @Test
     void deveAutenticarUsuarioValido() {
-        var usuario = repository.autenticar("Mariana", "123").orElseThrow();
-        assertEquals("ATENDENTE", usuario.tipoUsuario());
+        var usuario = repository.autenticar("Daniel", "123").orElseThrow();
+        assertEquals("GERENTE", usuario.tipoUsuario());
     }
 
     @Test
     void deveRejeitarSenhaInvalida() {
-        assertTrue(repository.autenticar("Mariana", "senha-errada").isEmpty());
+        assertTrue(repository.autenticar("Daniel", "senha-errada").isEmpty());
     }
 }

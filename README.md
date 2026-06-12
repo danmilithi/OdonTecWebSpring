@@ -18,7 +18,7 @@ Execute `database/schema.sql` no MySQL. A configuração padrão usa:
 
 As credenciais podem ser alteradas pelas variáveis `DB_URL`, `DB_USER` e `DB_PASSWORD`.
 
-Usuário inicial: `Mariana`  
+Usuário inicial: `Daniel`  
 Senha inicial: `123`
 
 ## Executar

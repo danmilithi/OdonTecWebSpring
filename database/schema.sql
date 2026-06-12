@@ -65,5 +65,5 @@ CREATE TABLE IF NOT EXISTS usuario (
 );
 
 INSERT INTO usuario (login, senha, tipo_usuario)
-SELECT 'Mariana', '123', 'ATENDENTE'
-WHERE NOT EXISTS (SELECT 1 FROM usuario WHERE login = 'Mariana');
+SELECT 'Daniel', '123', 'GERENTE'
+WHERE NOT EXISTS (SELECT 1 FROM usuario WHERE login = 'Daniel');

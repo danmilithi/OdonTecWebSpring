@@ -46,3 +46,5 @@
 Resultado automatizado: **7 testes executados, 0 falhas e 0 erros**.
 
 Os registros criados exclusivamente para os testes manuais foram removidos do banco ao final da execução.
+
+Repositório versionado: [danmilithi/OdonTecWebSpring](https://github.com/danmilithi/OdonTecWebSpring).

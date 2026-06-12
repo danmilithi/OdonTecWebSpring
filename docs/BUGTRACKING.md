@@ -22,3 +22,17 @@ Este arquivo funciona como registro de defeitos da etapa de testes. Os itens for
 - Testes manuais executados em 12/06/2026 e registrados em `PLANO_TESTES.md`.
 - Navegação conferida em desktop e em viewport móvel de 390 x 844 pixels.
 - Integração real confirmada com o banco MySQL `odontecdb`.
+
+## Issues no GitHub
+
+As falhas foram registradas e encerradas na ferramenta de bugtracking do GitHub:
+
+- [BUG-001](https://github.com/danmilithi/OdonTecWebSpring/issues/1)
+- [BUG-002](https://github.com/danmilithi/OdonTecWebSpring/issues/2)
+- [BUG-003](https://github.com/danmilithi/OdonTecWebSpring/issues/3)
+- [BUG-004](https://github.com/danmilithi/OdonTecWebSpring/issues/4)
+- [BUG-005](https://github.com/danmilithi/OdonTecWebSpring/issues/5)
+- [BUG-006](https://github.com/danmilithi/OdonTecWebSpring/issues/6)
+- [BUG-007](https://github.com/danmilithi/OdonTecWebSpring/issues/7)
+- [BUG-008](https://github.com/danmilithi/OdonTecWebSpring/issues/8)
+- [BUG-009](https://github.com/danmilithi/OdonTecWebSpring/issues/9)

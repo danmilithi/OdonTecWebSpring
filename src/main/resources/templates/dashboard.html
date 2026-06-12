@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Visão geral')}"></head>
+<body>
+<div class="app-shell">
+    <aside th:replace="~{fragments :: sidebar('dashboard')}"></aside>
+    <main class="page-content">
+        <header th:replace="~{fragments :: pageHeader('Visão geral', 'Acompanhe os principais registros da clínica.')}"></header>
+
+        <section class="metric-grid" aria-label="Resumo do sistema">
+            <a class="metric-card" th:href="@{/pacientes}">
+                <span>Pacientes</span>
+                <strong th:text="${totalPacientes}">0</strong>
+            </a>
+            <a class="metric-card" th:href="@{/dentistas}">
+                <span>Dentistas</span>
+                <strong th:text="${totalDentistas}">0</strong>
+            </a>
+            <a class="metric-card" th:href="@{/agenda}">
+                <span>Consultas</span>
+                <strong th:text="${totalAgenda}">0</strong>
+            </a>
+            <a class="metric-card" th:href="@{/tratamentos}">
+                <span>Tratamentos</span>
+                <strong th:text="${totalTratamentos}">0</strong>
+            </a>
+            <a class="metric-card" th:href="@{/produtos}">
+                <span>Produtos</span>
+                <strong th:text="${totalProdutos}">0</strong>
+            </a>
+            <a class="metric-card" th:href="@{/fornecedores}">
+                <span>Fornecedores</span>
+                <strong th:text="${totalFornecedores}">0</strong>
+            </a>
+        </section>
+
+        <section class="dashboard-band">
+            <div>
+                <h2>Acesso rápido</h2>
+                <p>Cadastre uma nova consulta ou revise os registros mais usados.</p>
+            </div>
+            <div class="button-row">
+                <a class="primary-button" th:href="@{/agenda}">Abrir agenda</a>
+                <a class="secondary-button" th:href="@{/pacientes}">Gerenciar pacientes</a>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

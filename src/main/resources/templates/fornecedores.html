@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Fornecedores')}"></head>
+<body>
+<div class="app-shell">
+    <aside th:replace="~{fragments :: sidebar('fornecedores')}"></aside>
+    <main class="page-content">
+        <header th:replace="~{fragments :: pageHeader('Fornecedores', 'Mantenha os contatos e produtos fornecidos.')}"></header>
+        <div th:replace="~{fragments :: alerts}"></div>
+        <section class="workspace-grid">
+            <form class="data-form" th:action="@{/fornecedores/salvar}" th:object="${fornecedor}" method="post">
+                <div class="section-heading"><h2 th:text="${fornecedor.id == null ? 'Novo fornecedor' : 'Editar fornecedor'}"></h2><p>Dados comerciais do fornecedor.</p></div>
+                <input type="hidden" th:field="*{id}">
+                <label for="nome">Nome *</label><input id="nome" type="text" th:field="*{nome}"><span class="field-error" th:errors="*{nome}"></span>
+                <label for="telefone">Telefone</label><input id="telefone" type="text" th:field="*{telefone}">
+                <label for="produto">Produto fornecido</label><input id="produto" type="text" th:field="*{produto}">
+                <div class="form-actions"><button class="primary-button" type="submit">Salvar</button><a class="secondary-button" th:if="${fornecedor.id != null}" th:href="@{/fornecedores}">Cancelar</a></div>
+            </form>
+            <section class="data-region">
+                <form class="search-bar" method="get" th:action="@{/fornecedores}"><input type="search" name="busca" th:value="${busca}" placeholder="Buscar fornecedor ou produto"><button class="secondary-button" type="submit">Buscar</button></form>
+                <div class="table-wrap"><table><thead><tr><th>Nome</th><th>Telefone</th><th>Produto</th><th>Ações</th></tr></thead><tbody>
+                <tr th:each="item : ${registros}"><td th:text="${item.nome}"></td><td th:text="${item.telefone ?: '-'}"></td><td th:text="${item.produto ?: '-'}"></td><td class="actions"><a th:href="@{/fornecedores/{id}/editar(id=${item.id})}">Editar</a><form th:action="@{/fornecedores/{id}/excluir(id=${item.id})}" method="post" data-confirm="Excluir este fornecedor?"><button type="submit">Excluir</button></form></td></tr>
+                <tr th:if="${#lists.isEmpty(registros)}"><td colspan="4" class="empty-state">Nenhum fornecedor encontrado.</td></tr>
+                </tbody></table></div>
+            </section>
+        </section>
+    </main>
+</div>
+</body>
+</html>

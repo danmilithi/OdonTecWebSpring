@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Agenda')}"></head>
+<body>
+<div class="app-shell">
+    <aside th:replace="~{fragments :: sidebar('agenda')}"></aside>
+    <main class="page-content">
+        <header th:replace="~{fragments :: pageHeader('Agenda', 'Organize as consultas da clínica.')}"></header>
+        <div th:replace="~{fragments :: alerts}"></div>
+        <section class="workspace-grid">
+            <form class="data-form" th:action="@{/agenda/salvar}" th:object="${agenda}" method="post">
+                <div class="section-heading"><h2 th:text="${agenda.id == null ? 'Nova consulta' : 'Editar consulta'}"></h2><p>Selecione os registros já cadastrados.</p></div>
+                <input type="hidden" th:field="*{id}">
+                <label for="paciente">Paciente *</label>
+                <select id="paciente" th:field="*{paciente}"><option value="">Selecione</option><option th:each="item : ${pacientes}" th:value="${item.nome}" th:text="${item.nome}"></option></select>
+                <span class="field-error" th:errors="*{paciente}"></span>
+                <label for="dentista">Dentista *</label>
+                <select id="dentista" th:field="*{dentista}"><option value="">Selecione</option><option th:each="item : ${dentistas}" th:value="${item.nome}" th:text="${item.nome}"></option></select>
+                <span class="field-error" th:errors="*{dentista}"></span>
+                <label for="tratamento">Tratamento *</label>
+                <select id="tratamento" th:field="*{tratamento}"><option value="">Selecione</option><option th:each="item : ${tratamentos}" th:value="${item.nome}" th:text="${item.nome}"></option></select>
+                <span class="field-error" th:errors="*{tratamento}"></span>
+                <div class="field-row">
+                    <div><label for="data">Data *</label><input id="data" type="date" th:field="*{data}"><span class="field-error" th:errors="*{data}"></span></div>
+                    <div><label for="hora">Hora *</label><input id="hora" type="time" th:field="*{hora}"><span class="field-error" th:errors="*{hora}"></span></div>
+                </div>
+                <div class="form-actions"><button class="primary-button" type="submit">Salvar</button><a class="secondary-button" th:if="${agenda.id != null}" th:href="@{/agenda}">Cancelar</a></div>
+            </form>
+            <section class="data-region">
+                <form class="search-bar" method="get" th:action="@{/agenda}"><input type="search" name="busca" th:value="${busca}" placeholder="Buscar paciente, dentista ou tratamento"><button class="secondary-button" type="submit">Buscar</button></form>
+                <div class="table-wrap"><table><thead><tr><th>Data</th><th>Hora</th><th>Paciente</th><th>Dentista</th><th>Tratamento</th><th>Ações</th></tr></thead><tbody>
+                <tr th:each="item : ${registros}"><td th:text="${item.data}"></td><td th:text="${item.hora}"></td><td th:text="${item.paciente}"></td><td th:text="${item.dentista}"></td><td th:text="${item.tratamento}"></td><td class="actions"><a th:href="@{/agenda/{id}/editar(id=${item.id})}">Editar</a><form th:action="@{/agenda/{id}/excluir(id=${item.id})}" method="post" data-confirm="Excluir esta consulta?"><button type="submit">Excluir</button></form></td></tr>
+                <tr th:if="${#lists.isEmpty(registros)}"><td colspan="6" class="empty-state">Nenhuma consulta encontrada.</td></tr>
+                </tbody></table></div>
+            </section>
+        </section>
+    </main>
+</div>
+</body>
+</html>
